@@ -1,0 +1,17 @@
+# Cloudflare Pages 응답 헤더
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), geolocation=(), microphone=(self)
+
+# 파일명에 해시가 붙는 빌드 산출물
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 사진은 다시 굽는 일이 잦다: 이름은 그대로라 짧게 두고 ETag로 다시 확인한다
+/photos/*
+  Cache-Control: public, max-age=300, must-revalidate
+
+/fx/*
+  Cache-Control: public, max-age=86400
